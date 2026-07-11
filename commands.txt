@@ -1,0 +1,5 @@
+=> Install uv
+  open cmd
+  pip install uv
+  uv venv
+  .venv\Scripts\activate
