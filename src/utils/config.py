@@ -1,0 +1,5 @@
+CHUNK_SIZE = 500
+CHUNK_OVERLAP = 100
+
+DATA_FOLDER = "data/raw"
+PROCESSED_FOLDER = "data/processed"

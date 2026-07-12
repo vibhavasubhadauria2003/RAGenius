@@ -3,3 +3,6 @@
   pip install uv
   uv venv
   .venv\Scripts\activate
+
+=> Install any library
+  uv pip install <Library-Name>
