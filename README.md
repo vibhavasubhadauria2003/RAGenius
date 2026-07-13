@@ -13,7 +13,8 @@ HybridRAG-Scholar/
 │   ├── ingestion/
 │   │   ├── pdf_loader.py
 │   │   ├── text_cleaner.py
-│   │   └── chunker.py
+│   │   |── chunker.py
+|   |   |---ingestion_pipeline.py
 │   │
 │   ├── embedding/
 │   │   ├── embedding_model.py
