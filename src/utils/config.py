@@ -1,5 +1,7 @@
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
 
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+
 DATA_FOLDER = "data/raw"
 PROCESSED_FOLDER = "data/processed"
