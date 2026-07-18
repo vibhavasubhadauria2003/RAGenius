@@ -14,10 +14,10 @@ class Retriever:
         """
         try:
             results = VectorStore.search(question, top_k)
-            if results is None or not results['documents']:
+            if results is None or not results["documents"]:
                 print("No relevant chunks found for the given question.")
                 return []
-            return results['documents']
+            return results["documents"]
         except Exception as e:
             print(f"An error occurred during retrieval: {e}")
             return []

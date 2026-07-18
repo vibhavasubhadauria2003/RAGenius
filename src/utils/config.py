@@ -9,3 +9,7 @@ PROCESSED_FOLDER = "data/processed"
 CHROMA_DB_PATH = "./db/chroma"
 
 COLLECTION_NAME = "academic_documents"
+
+QUESTIONS = "What is the purpose of the data link layer?"
+
+LLM_MODEL = "llama3.2:3b"
