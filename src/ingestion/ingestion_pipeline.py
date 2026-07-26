@@ -1,6 +1,8 @@
 from .pdf_loader import PDFLoader
 from .text_cleaner import TextCleaner
 from .chunker import Chunker
+from .chunck_saver import ChunkSaver
+from utils.config import FILE_NAME, DATA_FOLDER, PROCESSED_FOLDER
 
 class IngestionPipeline:
     @staticmethod
@@ -16,6 +18,8 @@ class IngestionPipeline:
 
             chunks = Chunker.create_chunks(cleaned_text)
             print(f"Created {len(chunks)} chunks.")
+
+            ChunkSaver.save_chunks(chunks, FILE_NAME.replace('.pdf', ''))
             return chunks
         except Exception as e:
             print(f"An error occurred in the ingestion pipeline: {e}")

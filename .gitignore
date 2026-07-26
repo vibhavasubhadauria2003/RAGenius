@@ -1,0 +1,103 @@
+# ===========================
+# Python
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===========================
+# Virtual Environment
+# ===========================
+venv/
+env/
+ENV/
+.venv/
+
+# ===========================
+# Environment Variables
+# ===========================
+.env
+
+# ===========================
+# IDEs
+# ===========================
+.vscode/
+.idea/
+
+# ===========================
+# Jupyter Notebook
+# ===========================
+.ipynb_checkpoints/
+
+# ===========================
+# Logs
+# ===========================
+*.log
+outputs/logs/
+
+# ===========================
+# ChromaDB
+# ===========================
+data/chroma_db/
+
+# ===========================
+# Processed Data
+# ===========================
+data/processed/
+
+# ===========================
+# Embeddings (if stored separately)
+# ===========================
+data/embeddings/
+
+# ===========================
+# Output Files
+# ===========================
+outputs/reports/
+outputs/results/
+outputs/answers/
+outputs/benchmark/
+
+# ===========================
+# OS Files
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# Testing / Coverage
+# ===========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===========================
+# Mypy
+# ===========================
+.mypy_cache/
+
+# ===========================
+# Ruff
+# ===========================
+.ruff_cache/
+
+# ===========================
+# Temporary Files
+# ===========================
+*.tmp
+*.temp
+
+# ===========================
+# Model Cache
+# ===========================
+.cache/
+huggingface/
