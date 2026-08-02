@@ -1,7 +1,7 @@
 import ollama
 
 from utils.config import LLM_MODEL
-
+from utils.logger import Logger
 
 class LLMClient:
     """
@@ -30,8 +30,9 @@ class LLMClient:
                     }
                 ]
             )
-
+            Logger.info(f"Generated response for prompt: '{prompt}'")
             return response["message"]["content"].strip()
 
         except Exception as e:
+            Logger.info(f"Error generating response: {e}")
             return f"Error generating response: {e}"

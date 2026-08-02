@@ -1,7 +1,7 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from utils.config import CHUNK_SIZE, CHUNK_OVERLAP
-
+from utils.logger import Logger
 
 class Chunker:
     """
@@ -33,5 +33,5 @@ class Chunker:
                 ""
             ],
         )
-
+        Logger.info("Text chunks created successfully.")
         return text_splitter.split_text(text)

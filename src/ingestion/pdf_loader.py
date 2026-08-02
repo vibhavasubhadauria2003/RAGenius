@@ -1,10 +1,10 @@
 import fitz  # PyMuPDF
-
+from utils.logger import Logger
 class PDFLoader:
     @staticmethod
     def extract_text(pdf_path):
         text = ""
-        print(f"Extracting text from PDF: {pdf_path}")
+        Logger.info(f"Extracting text from PDF: {pdf_path}")
         try:
             pdf_document = fitz.open(pdf_path)
         
@@ -15,6 +15,6 @@ class PDFLoader:
         
             pdf_document.close()
         except Exception as e:
-            print(f"Error occurred while extracting text from PDF: {e}")
+            Logger.info(f"Error occurred while extracting text from PDF: {e}")
 
         return text

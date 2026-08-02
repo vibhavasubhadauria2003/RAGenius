@@ -1,6 +1,6 @@
 import re
 from rank_bm25 import BM25Okapi
-
+from utils.logger import Logger
 
 class BM25Retriever:
 
@@ -75,6 +75,6 @@ class BM25Retriever:
                        "score": score
                 }
                 )
-
+        Logger.info(f"BM25 search completed for query: '{query}' with top_k={top_k}.")  
         return results
 

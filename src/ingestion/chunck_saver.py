@@ -1,6 +1,8 @@
 import json
 import os
 from utils.config import PROCESSED_FOLDER
+from utils.logger import Logger
+
 
 class ChunkSaver:
 
@@ -30,4 +32,4 @@ class ChunkSaver:
                 ensure_ascii=False
             )
 
-        print(f"Chunks saved to {output_path}")
+        Logger.info(f"Chunks saved to {output_path}")

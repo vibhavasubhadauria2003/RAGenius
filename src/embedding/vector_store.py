@@ -1,6 +1,8 @@
 import chromadb
 from chromadb.config import Settings
 from .embedding_model import EmbeddingModel
+from utils.logger import Logger
+
 
 from utils.config import (
     CHROMA_DB_PATH,
@@ -16,7 +18,7 @@ class VectorStore:
     @staticmethod
     def store(chunks: list[str], embeddings: list[list[float]]):
         if not chunks:
-            print("No chunks to store in vector store.")
+            Logger.info("No chunks to store in vector store.")
             return
         
         ids=[f"chunk_{i}" for i in range(len(chunks))]
@@ -33,9 +35,9 @@ class VectorStore:
                 ids=ids,
                 metadatas=metadata
             )
-            print(f"Stored embeddings for {len(chunks)} chunks in the vector store.")
+            Logger.info(f"Stored embeddings for {len(chunks)} chunks in the vector store.")
         except Exception as e:
-            print(f"Error storing chunks in vector store: {e}")
+            Logger.info(f"Error storing chunks in vector store: {e}")
     @staticmethod
     def search(question, top_k: int = 5):
         embedding = EmbeddingModel.generate_embedding([question])
@@ -46,6 +48,6 @@ class VectorStore:
             )
             return results
         except Exception as e:
-            print(f"Error searching in vector store: {e}")
+            Logger.info(f"Error searching in vector store: {e}")
             return None
         

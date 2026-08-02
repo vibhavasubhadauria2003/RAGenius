@@ -3,6 +3,8 @@ from .text_cleaner import TextCleaner
 from .chunker import Chunker
 from .chunck_saver import ChunkSaver
 from utils.config import FILE_NAME, DATA_FOLDER, PROCESSED_FOLDER
+from utils.logger import Logger
+
 
 class IngestionPipeline:
     @staticmethod
@@ -10,17 +12,17 @@ class IngestionPipeline:
         try:
             # Step 1: Extract text from PDF
             extracted_text = PDFLoader.extract_text(pdf_path)
-            print(f"Extracted text: {extracted_text[:100]}...")  # Print first 100 characters for preview
+            Logger.info(f"Extracted text: {extracted_text[:100]}...")  # Log first 100 characters for preview
 
             # Step 2: Clean the extracted text
             cleaned_text = TextCleaner.clean_text(extracted_text)
-            print(f"Cleaned text: {cleaned_text[:100]}...")  # Print first 100 characters for preview
+            Logger.info(f"Cleaned text: {cleaned_text[:100]}...")  # Log first 100 characters for preview
 
             chunks = Chunker.create_chunks(cleaned_text)
-            print(f"Created {len(chunks)} chunks.")
+            Logger.info(f"Created {len(chunks)} chunks.")
 
             ChunkSaver.save_chunks(chunks, FILE_NAME.replace('.pdf', ''))
             return chunks
         except Exception as e:
-            print(f"An error occurred in the ingestion pipeline: {e}")
+            Logger.info(f"An error occurred in the ingestion pipeline: {e}")
             return None

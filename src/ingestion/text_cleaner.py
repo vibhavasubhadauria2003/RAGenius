@@ -1,5 +1,5 @@
 import re
-
+from utils.logger import Logger
 class TextCleaner:
     
     @staticmethod
@@ -9,4 +9,5 @@ class TextCleaner:
         text = re.sub(r'-\n', '', text)
         text = re.sub(r'\n+', '\n', text)  # Replace multiple newlines with a single newline
         text = re.sub(r' +', ' ', text)  # Replace multiple spaces with a single space
+        Logger.info("Text cleaned successfully.")
         return text

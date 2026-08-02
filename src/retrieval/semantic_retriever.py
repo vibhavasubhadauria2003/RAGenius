@@ -1,5 +1,5 @@
 from embedding.vector_store import VectorStore
-
+from utils.logger import Logger
 class SemanticRetriever:
     @staticmethod
     def search(question: str, top_k: int = 5):
@@ -15,7 +15,7 @@ class SemanticRetriever:
         try:
             scored_chunks = VectorStore.search(question, top_k)
             if scored_chunks is None or not scored_chunks["documents"]:
-                print("No relevant chunks found for the given question.")
+                Logger.info("No relevant chunks found for the given question.")
                 return scored_chunks
             
             results = []
@@ -31,6 +31,6 @@ class SemanticRetriever:
                         )
             return results
         except Exception as e:
-            print(f"An error occurred during retrieval: {e}")
+            Logger.info(f"An error occurred during retrieval: {e}")
             return []
 

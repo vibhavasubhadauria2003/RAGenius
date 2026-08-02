@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer
 
 from utils.config import EMBEDDING_MODEL
+from utils.logger import Logger
 
 class EmbeddingModel:
 
@@ -20,14 +21,14 @@ class EmbeddingModel:
 
         if not chunks:
             return []
-        print(f"Generating embeddings for {len(chunks)} chunks using model '{EMBEDDING_MODEL}'...")
+        Logger.info(f"Generating embeddings for {len(chunks)} chunks using model '{EMBEDDING_MODEL}'...")
         try:
             embeddings = EmbeddingModel.model.encode(
                 chunks, 
                 convert_to_numpy=True,
                 show_progress_bar=True)
         except Exception as e:
-            print(f"An error occurred while generating embeddings: {e}")
+            Logger.info(f"An error occurred while generating embeddings: {e}")
             return []
 
         

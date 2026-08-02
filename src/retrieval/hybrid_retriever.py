@@ -1,6 +1,8 @@
 from .semantic_retriever import SemanticRetriever
 from .bm25_retriever import BM25Retriever
 from utils.config import SEMANTIC_WEIGHT, BM25_WEIGHT
+from utils.logger import Logger
+
 
 class HybridRetriever:
     """
@@ -92,4 +94,6 @@ class HybridRetriever:
             key=lambda item: item["score"],
             reverse=True
         )
+
+        Logger.info(f"Hybrid search completed for query: '{query}' with top_k={top_k}.")    
         return merged_results[:top_k]
